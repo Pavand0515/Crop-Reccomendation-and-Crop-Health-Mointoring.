@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.python-version
+
+# Virtual environments
+.venv/
+.venv_tf/
+.venv-tf/
+.venv312/
+.venv*/
+env/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+
+# Dataset and outputs
+Data/
+Notebooks/outputs/
+models/output*
+
+# Ignore Microsoft Office files
+*.docx
+*.doc
+*.pdf
