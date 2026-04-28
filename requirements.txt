@@ -1,0 +1,7 @@
+tensorflow>=2.21,<2.22
+streamlit>=1.56,<2
+pandas>=3.0,<4
+numpy>=2.4,<3
+scikit-learn>=1.8,<2
+joblib>=1.5,<2
+Pillow>=12,<13
