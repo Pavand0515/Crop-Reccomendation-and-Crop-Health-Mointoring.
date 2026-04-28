@@ -35,8 +35,3 @@ streamlit run app.py
 - If deployment fails due to TensorFlow compatibility, try pinning a CPU build like `tensorflow-cpu==2.12.0` or use Python 3.11.
 - `.gitignore` excludes local virtual environments, dataset folders, and temporary files.
 
-cd /d d:\Capstone
-git remote set-url origin https://github.com/Pavand0515/Crop-Reccomendation-and-Crop-Health-Mointoring.git
-git push -u origin master:maincd /d d:\Capstone
-git remote set-url origin https://github.com/Pavand0515/Crop-Reccomendation-and-Crop-Health-Mointoring.git
-git push -u origin master:main
