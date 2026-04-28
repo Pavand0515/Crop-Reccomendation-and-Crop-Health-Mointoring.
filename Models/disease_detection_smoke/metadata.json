@@ -1,0 +1,621 @@
+{
+  "created_at": "2026-04-23T20:10:39.109415+00:00",
+  "best_model": "logistic_regression",
+  "validation_metrics": {
+    "accuracy": 0.44672131147540983,
+    "macro_f1": 0.42001548586914433,
+    "weighted_f1": 0.4179937548790008,
+    "top3_accuracy": 0.7008196721311475
+  },
+  "test_metrics": {
+    "accuracy": 0.5076923076923077,
+    "macro_f1": 0.4330532212885154,
+    "weighted_f1": 0.5096703296703298,
+    "top3_accuracy": 0.8
+  },
+  "feature_count": 548,
+  "num_classes": 82,
+  "num_plants": 24,
+  "num_sources": 11,
+  "images_used": 1193,
+  "images_by_split": {
+    "test": 130,
+    "train": 819,
+    "valid": 244
+  },
+  "images_by_source": {
+    "mixed": 494,
+    "Banana Disease Recognition Dataset": 112,
+    "coconut": 96,
+    "Pomegranate Fruit Diseases Dataset for Deep Learning Models": 80,
+    "Black Gram Leaf": 80,
+    "watermelon": 64,
+    "corn": 64,
+    "papaya": 59,
+    "Bean_Dataset": 48,
+    "Jute Leaf Disease Detection": 48,
+    "rice_leaf_diseases": 48
+  },
+  "images_by_label": {
+    "Banana - Black Sigatoka Disease": 16,
+    "Banana - Bract Mosaic Virus Disease": 16,
+    "Black Gram - Cercospora leaf spot": 16,
+    "Black Gram - Healthy": 16,
+    "Banana - Insect Pest Disease": 16,
+    "Banana - Healthy Leaf": 16,
+    "Banana - Moko Disease": 16,
+    "Banana - Panama Disease": 16,
+    "Bean - Angular Leaf Spot": 16,
+    "Banana - Yellow Sigatoka Disease": 16,
+    "Black Gram - Insect": 16,
+    "Black Gram - Leaf Crinkle": 16,
+    "Bean - Healthy": 16,
+    "Bean - Rust": 16,
+    "Coconut - CCI Caterpillars": 16,
+    "Coconut - CCI Leaflets": 16,
+    "Coconut - Healthy Leaves": 16,
+    "Black Gram - Yellow Mosaic": 16,
+    "Jute - Healthy Leaf": 16,
+    "Rice - Brown spot": 16,
+    "Rice - Leaf smut": 16,
+    "Pomegranate - Healthy": 16,
+    "Coconut - WCLWD DryingofLeaflets": 16,
+    "Corn - Blight": 16,
+    "Coconut - WCLWD Yellowing": 16,
+    "Coconut - WCLWD Flaccidity": 16,
+    "Corn - Common Rust": 16,
+    "Papaya - Carica Insect Hole": 16,
+    "Papaya - Yellow Necrotic Spots Holes": 16,
+    "Papaya - Healthy Leaf": 16,
+    "Jute - Golden Mosaic": 16,
+    "Jute - Cescospora Leaf Spot": 16,
+    "Corn - Healthy": 16,
+    "Corn - Gray Leaf Spot": 16,
+    "Rice - Bacterial leaf blight": 16,
+    "Pomegranate - Cercospora": 16,
+    "Pomegranate - Alternaria": 16,
+    "Pomegranate - Anthracnose": 16,
+    "Watermelon - Anthracnose": 16,
+    "Watermelon - Downy Mildew": 16,
+    "Watermelon - Healthy": 16,
+    "Watermelon - Mosaic Virus": 16,
+    "Pomegranate - Bacterial Blight": 16,
+    "Apple - Healthy": 13,
+    "Apple - Apple scab": 13,
+    "Apple - Black rot": 13,
+    "Apple - Cedar apple rust": 13,
+    "Corn (maize) - Healthy": 13,
+    "Corn (maize) - Cercospora leaf spot Gray leaf spot": 13,
+    "Corn (maize) - Northern Leaf Blight": 13,
+    "Squash - Powdery mildew": 13,
+    "Peach - Healthy": 13,
+    "Orange - Haunglongbing (Citrus greening)": 13,
+    "Peach - Bacterial spot": 13,
+    "Grape - Esca (Black Measles)": 13,
+    "Grape - Black rot": 13,
+    "Grape - Leaf blight (Isariopsis Leaf Spot)": 13,
+    "Grape - Healthy": 13,
+    "Corn (maize) - Common rust": 13,
+    "Cherry (including sour) - Healthy": 13,
+    "Cherry (including sour) - Powdery mildew": 13,
+    "Blueberry - Healthy": 13,
+    "Potato - Early blight": 13,
+    "Pepper, bell - Bacterial spot": 13,
+    "Pepper, bell - Healthy": 13,
+    "Potato - Healthy": 13,
+    "Tomato - Septoria leaf spot": 13,
+    "Soybean - Healthy": 13,
+    "Potato - Late blight": 13,
+    "Raspberry - Healthy": 13,
+    "Strawberry - Healthy": 13,
+    "Strawberry - Leaf scorch": 13,
+    "Tomato - Bacterial spot": 13,
+    "Tomato - Early blight": 13,
+    "Tomato - Tomato mosaic virus": 13,
+    "Tomato - Leaf Mold": 13,
+    "Tomato - Late blight": 13,
+    "Tomato - Healthy": 13,
+    "Tomato - Target Spot": 13,
+    "Tomato - Tomato Yellow Leaf Curl Virus": 13,
+    "Tomato - Spider mites Two spotted spider mite": 13,
+    "Papaya - Bacterial Blight": 11
+  },
+  "plants": [
+    "Apple",
+    "Banana",
+    "Bean",
+    "Black Gram",
+    "Blueberry",
+    "Cherry (including sour)",
+    "Coconut",
+    "Corn",
+    "Corn (maize)",
+    "Grape",
+    "Jute",
+    "Orange",
+    "Papaya",
+    "Peach",
+    "Pepper, bell",
+    "Pomegranate",
+    "Potato",
+    "Raspberry",
+    "Rice",
+    "Soybean",
+    "Squash",
+    "Strawberry",
+    "Tomato",
+    "Watermelon"
+  ],
+  "label_details": [
+    {
+      "label": "Apple - Apple scab",
+      "plant": "Apple",
+      "disease": "Apple scab"
+    },
+    {
+      "label": "Apple - Black rot",
+      "plant": "Apple",
+      "disease": "Black rot"
+    },
+    {
+      "label": "Apple - Cedar apple rust",
+      "plant": "Apple",
+      "disease": "Cedar apple rust"
+    },
+    {
+      "label": "Apple - Healthy",
+      "plant": "Apple",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Banana - Black Sigatoka Disease",
+      "plant": "Banana",
+      "disease": "Black Sigatoka Disease"
+    },
+    {
+      "label": "Banana - Bract Mosaic Virus Disease",
+      "plant": "Banana",
+      "disease": "Bract Mosaic Virus Disease"
+    },
+    {
+      "label": "Banana - Healthy Leaf",
+      "plant": "Banana",
+      "disease": "Healthy Leaf"
+    },
+    {
+      "label": "Banana - Insect Pest Disease",
+      "plant": "Banana",
+      "disease": "Insect Pest Disease"
+    },
+    {
+      "label": "Banana - Moko Disease",
+      "plant": "Banana",
+      "disease": "Moko Disease"
+    },
+    {
+      "label": "Banana - Panama Disease",
+      "plant": "Banana",
+      "disease": "Panama Disease"
+    },
+    {
+      "label": "Banana - Yellow Sigatoka Disease",
+      "plant": "Banana",
+      "disease": "Yellow Sigatoka Disease"
+    },
+    {
+      "label": "Bean - Angular Leaf Spot",
+      "plant": "Bean",
+      "disease": "Angular Leaf Spot"
+    },
+    {
+      "label": "Bean - Healthy",
+      "plant": "Bean",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Bean - Rust",
+      "plant": "Bean",
+      "disease": "Rust"
+    },
+    {
+      "label": "Black Gram - Cercospora leaf spot",
+      "plant": "Black Gram",
+      "disease": "Cercospora leaf spot"
+    },
+    {
+      "label": "Black Gram - Healthy",
+      "plant": "Black Gram",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Black Gram - Insect",
+      "plant": "Black Gram",
+      "disease": "Insect"
+    },
+    {
+      "label": "Black Gram - Leaf Crinkle",
+      "plant": "Black Gram",
+      "disease": "Leaf Crinkle"
+    },
+    {
+      "label": "Black Gram - Yellow Mosaic",
+      "plant": "Black Gram",
+      "disease": "Yellow Mosaic"
+    },
+    {
+      "label": "Blueberry - Healthy",
+      "plant": "Blueberry",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Cherry (including sour) - Healthy",
+      "plant": "Cherry (including sour)",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Cherry (including sour) - Powdery mildew",
+      "plant": "Cherry (including sour)",
+      "disease": "Powdery mildew"
+    },
+    {
+      "label": "Coconut - CCI Caterpillars",
+      "plant": "Coconut",
+      "disease": "CCI Caterpillars"
+    },
+    {
+      "label": "Coconut - CCI Leaflets",
+      "plant": "Coconut",
+      "disease": "CCI Leaflets"
+    },
+    {
+      "label": "Coconut - Healthy Leaves",
+      "plant": "Coconut",
+      "disease": "Healthy Leaves"
+    },
+    {
+      "label": "Coconut - WCLWD DryingofLeaflets",
+      "plant": "Coconut",
+      "disease": "WCLWD DryingofLeaflets"
+    },
+    {
+      "label": "Coconut - WCLWD Flaccidity",
+      "plant": "Coconut",
+      "disease": "WCLWD Flaccidity"
+    },
+    {
+      "label": "Coconut - WCLWD Yellowing",
+      "plant": "Coconut",
+      "disease": "WCLWD Yellowing"
+    },
+    {
+      "label": "Corn (maize) - Cercospora leaf spot Gray leaf spot",
+      "plant": "Corn (maize)",
+      "disease": "Cercospora leaf spot Gray leaf spot"
+    },
+    {
+      "label": "Corn (maize) - Common rust",
+      "plant": "Corn (maize)",
+      "disease": "Common rust"
+    },
+    {
+      "label": "Corn (maize) - Healthy",
+      "plant": "Corn (maize)",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Corn (maize) - Northern Leaf Blight",
+      "plant": "Corn (maize)",
+      "disease": "Northern Leaf Blight"
+    },
+    {
+      "label": "Corn - Blight",
+      "plant": "Corn",
+      "disease": "Blight"
+    },
+    {
+      "label": "Corn - Common Rust",
+      "plant": "Corn",
+      "disease": "Common Rust"
+    },
+    {
+      "label": "Corn - Gray Leaf Spot",
+      "plant": "Corn",
+      "disease": "Gray Leaf Spot"
+    },
+    {
+      "label": "Corn - Healthy",
+      "plant": "Corn",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Grape - Black rot",
+      "plant": "Grape",
+      "disease": "Black rot"
+    },
+    {
+      "label": "Grape - Esca (Black Measles)",
+      "plant": "Grape",
+      "disease": "Esca (Black Measles)"
+    },
+    {
+      "label": "Grape - Healthy",
+      "plant": "Grape",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Grape - Leaf blight (Isariopsis Leaf Spot)",
+      "plant": "Grape",
+      "disease": "Leaf blight (Isariopsis Leaf Spot)"
+    },
+    {
+      "label": "Jute - Cescospora Leaf Spot",
+      "plant": "Jute",
+      "disease": "Cescospora Leaf Spot"
+    },
+    {
+      "label": "Jute - Golden Mosaic",
+      "plant": "Jute",
+      "disease": "Golden Mosaic"
+    },
+    {
+      "label": "Jute - Healthy Leaf",
+      "plant": "Jute",
+      "disease": "Healthy Leaf"
+    },
+    {
+      "label": "Orange - Haunglongbing (Citrus greening)",
+      "plant": "Orange",
+      "disease": "Haunglongbing (Citrus greening)"
+    },
+    {
+      "label": "Papaya - Bacterial Blight",
+      "plant": "Papaya",
+      "disease": "Bacterial Blight"
+    },
+    {
+      "label": "Papaya - Carica Insect Hole",
+      "plant": "Papaya",
+      "disease": "Carica Insect Hole"
+    },
+    {
+      "label": "Papaya - Healthy Leaf",
+      "plant": "Papaya",
+      "disease": "Healthy Leaf"
+    },
+    {
+      "label": "Papaya - Yellow Necrotic Spots Holes",
+      "plant": "Papaya",
+      "disease": "Yellow Necrotic Spots Holes"
+    },
+    {
+      "label": "Peach - Bacterial spot",
+      "plant": "Peach",
+      "disease": "Bacterial spot"
+    },
+    {
+      "label": "Peach - Healthy",
+      "plant": "Peach",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Pepper, bell - Bacterial spot",
+      "plant": "Pepper, bell",
+      "disease": "Bacterial spot"
+    },
+    {
+      "label": "Pepper, bell - Healthy",
+      "plant": "Pepper, bell",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Pomegranate - Alternaria",
+      "plant": "Pomegranate",
+      "disease": "Alternaria"
+    },
+    {
+      "label": "Pomegranate - Anthracnose",
+      "plant": "Pomegranate",
+      "disease": "Anthracnose"
+    },
+    {
+      "label": "Pomegranate - Bacterial Blight",
+      "plant": "Pomegranate",
+      "disease": "Bacterial Blight"
+    },
+    {
+      "label": "Pomegranate - Cercospora",
+      "plant": "Pomegranate",
+      "disease": "Cercospora"
+    },
+    {
+      "label": "Pomegranate - Healthy",
+      "plant": "Pomegranate",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Potato - Early blight",
+      "plant": "Potato",
+      "disease": "Early blight"
+    },
+    {
+      "label": "Potato - Healthy",
+      "plant": "Potato",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Potato - Late blight",
+      "plant": "Potato",
+      "disease": "Late blight"
+    },
+    {
+      "label": "Raspberry - Healthy",
+      "plant": "Raspberry",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Rice - Bacterial leaf blight",
+      "plant": "Rice",
+      "disease": "Bacterial leaf blight"
+    },
+    {
+      "label": "Rice - Brown spot",
+      "plant": "Rice",
+      "disease": "Brown spot"
+    },
+    {
+      "label": "Rice - Leaf smut",
+      "plant": "Rice",
+      "disease": "Leaf smut"
+    },
+    {
+      "label": "Soybean - Healthy",
+      "plant": "Soybean",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Squash - Powdery mildew",
+      "plant": "Squash",
+      "disease": "Powdery mildew"
+    },
+    {
+      "label": "Strawberry - Healthy",
+      "plant": "Strawberry",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Strawberry - Leaf scorch",
+      "plant": "Strawberry",
+      "disease": "Leaf scorch"
+    },
+    {
+      "label": "Tomato - Bacterial spot",
+      "plant": "Tomato",
+      "disease": "Bacterial spot"
+    },
+    {
+      "label": "Tomato - Early blight",
+      "plant": "Tomato",
+      "disease": "Early blight"
+    },
+    {
+      "label": "Tomato - Healthy",
+      "plant": "Tomato",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Tomato - Late blight",
+      "plant": "Tomato",
+      "disease": "Late blight"
+    },
+    {
+      "label": "Tomato - Leaf Mold",
+      "plant": "Tomato",
+      "disease": "Leaf Mold"
+    },
+    {
+      "label": "Tomato - Septoria leaf spot",
+      "plant": "Tomato",
+      "disease": "Septoria leaf spot"
+    },
+    {
+      "label": "Tomato - Spider mites Two spotted spider mite",
+      "plant": "Tomato",
+      "disease": "Spider mites Two spotted spider mite"
+    },
+    {
+      "label": "Tomato - Target Spot",
+      "plant": "Tomato",
+      "disease": "Target Spot"
+    },
+    {
+      "label": "Tomato - Tomato Yellow Leaf Curl Virus",
+      "plant": "Tomato",
+      "disease": "Tomato Yellow Leaf Curl Virus"
+    },
+    {
+      "label": "Tomato - Tomato mosaic virus",
+      "plant": "Tomato",
+      "disease": "Tomato mosaic virus"
+    },
+    {
+      "label": "Watermelon - Anthracnose",
+      "plant": "Watermelon",
+      "disease": "Anthracnose"
+    },
+    {
+      "label": "Watermelon - Downy Mildew",
+      "plant": "Watermelon",
+      "disease": "Downy Mildew"
+    },
+    {
+      "label": "Watermelon - Healthy",
+      "plant": "Watermelon",
+      "disease": "Healthy"
+    },
+    {
+      "label": "Watermelon - Mosaic Virus",
+      "plant": "Watermelon",
+      "disease": "Mosaic Virus"
+    }
+  ],
+  "include_augmented": true,
+  "sampling": {
+    "max_train_per_class": 10,
+    "max_valid_per_class": 3,
+    "max_test_per_class": 3
+  },
+  "discovery_summary": {
+    "total_images": 112915,
+    "total_classes": 82,
+    "total_plants": 24,
+    "sources": {
+      "mixed": 87867,
+      "coconut": 5139,
+      "Pomegranate Fruit Diseases Dataset for Deep Learning Models": 5099,
+      "corn": 4188,
+      "Black Gram Leaf": 4038,
+      "Banana Disease Recognition Dataset": 3264,
+      "watermelon": 1155,
+      "Bean_Dataset": 990,
+      "Jute Leaf Disease Detection": 920,
+      "papaya": 135,
+      "rice_leaf_diseases": 120
+    },
+    "skipped_leaf_directories": {
+      "mixed\\test\\test": 1,
+      "coffee-leaf-diseases\\test\\images": 1,
+      "coffee-leaf-diseases\\test\\masks": 1,
+      "coffee-leaf-diseases\\train\\images": 1,
+      "coffee-leaf-diseases\\train\\masks": 1
+    }
+  },
+  "model_benchmark": [
+    {
+      "model": "sgd_logistic",
+      "accuracy": 0.3524590163934426,
+      "macro_f1": 0.3193264729850095,
+      "weighted_f1": 0.3219439030914441
+    },
+    {
+      "model": "logistic_regression",
+      "accuracy": 0.44672131147540983,
+      "macro_f1": 0.42001548586914433,
+      "weighted_f1": 0.4179937548790008,
+      "top3_accuracy": 0.7008196721311475
+    },
+    {
+      "model": "extra_trees",
+      "accuracy": 0.4426229508196721,
+      "macro_f1": 0.4033796149649808,
+      "weighted_f1": 0.4025876445958413,
+      "top3_accuracy": 0.6844262295081968
+    },
+    {
+      "model": "random_forest",
+      "accuracy": 0.44672131147540983,
+      "macro_f1": 0.4096258077965395,
+      "weighted_f1": 0.408885035729298,
+      "top3_accuracy": 0.7131147540983607
+    }
+  ]
+}
