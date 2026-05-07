@@ -8,3 +8,4 @@ scikit-learn>=1.8,<2
 joblib>=1.5,<2
 Pillow>=12,<13
 statsmodels>=0.14.6,<1
+huggingface_hub

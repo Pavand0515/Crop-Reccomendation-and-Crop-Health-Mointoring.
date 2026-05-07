@@ -21,6 +21,8 @@ from pydantic import BaseModel, Field
 import statsmodels.api as sm
 from statsmodels.tsa.statespace.sarimax import SARIMAXResults
 
+from huggingface_hub import hf_hub_download
+
 from disease_detection import load_disease_artifacts, predict_disease
 
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -146,26 +148,45 @@ def load_fertilizer_data() -> pd.DataFrame:
     return df
 
 
-def maybe_load(path: Path) -> Any | None:
-    return joblib.load(path) if path.exists() else None
+HF_REPO_ID = "Relentless707/crop-models"
+
+
+def hf_load(repo_path: str) -> Any | None:
+    """Download a file from HuggingFace Hub and load it with joblib. Returns None on failure."""
+    try:
+        local_path = hf_hub_download(repo_id=HF_REPO_ID, filename=repo_path)
+        return joblib.load(local_path)
+    except Exception as exc:
+        logging.warning(f"Could not load {repo_path} from HuggingFace Hub: {exc}")
+        return None
+
+
+def hf_read_text(repo_path: str) -> str | None:
+    """Download a text file from HuggingFace Hub and return its contents. Returns None on failure."""
+    try:
+        local_path = hf_hub_download(repo_id=HF_REPO_ID, filename=repo_path)
+        return Path(local_path).read_text(encoding="utf-8")
+    except Exception as exc:
+        logging.warning(f"Could not read {repo_path} from HuggingFace Hub: {exc}")
+        return None
 
 
 @lru_cache(maxsize=1)
 def load_assets() -> dict[str, Any]:
     assets = {
-        "crop_model": maybe_load(MODELS_DIR / "crop_recommendation" / "rf.pkl"),
-        "crop_scaler": maybe_load(MODELS_DIR / "crop_recommendation" / "scaler.pkl"),
-        "crop_encoder": maybe_load(MODELS_DIR / "crop_recommendation" / "label_encoder.pkl"),
-        "price_model": maybe_load(MODELS_DIR / "random_forest_model.pkl"),
-        "price_scaler": maybe_load(MODELS_DIR / "scaler.pkl"),
-        "encoders": maybe_load(MODELS_DIR / "encoders.pkl"),
+        "crop_model": hf_load("Models/crop_recommendation/rf.pkl"),
+        "crop_scaler": hf_load("Models/crop_recommendation/scaler.pkl"),
+        "crop_encoder": hf_load("Models/crop_recommendation/label_encoder.pkl"),
+        "price_model": hf_load("Models/random_forest_model.pkl"),
+        "price_scaler": hf_load("Models/scaler.pkl"),
+        "encoders": hf_load("Models/encoders.pkl"),
         "metadata": {},
         "fertilizer_df": load_fertilizer_data(),
     }
 
-    metadata_path = MODELS_DIR / "model_metadata.json"
-    if metadata_path.exists():
-        assets["metadata"] = json.loads(metadata_path.read_text(encoding="utf-8"))
+    metadata_text = hf_read_text("Models/model_metadata.json")
+    if metadata_text:
+        assets["metadata"] = json.loads(metadata_text)
     return assets
 
 
@@ -174,29 +195,27 @@ SUPPORTED_CROPS_TS = {"Banana", "Maize", "Mango", "Papaya", "Water_Melon"}
 
 @lru_cache(maxsize=32)
 def load_ts_model(crop: str) -> SARIMAXResults | None:
-    """Load best TS model (SARIMA preferred) for crop. Returns None if not available."""
-    ts_dir = MODELS_DIR / "forecasting_models"
-    
+    """Load best TS model (SARIMA preferred) for crop from HuggingFace Hub. Returns None if not available."""
     # Prefer SARIMA
-    sarima_path = ts_dir / f"{crop}_sarima_fit.pkl"
-    if sarima_path.exists():
-        return joblib.load(sarima_path)
-    
+    model = hf_load(f"Models/forecasting_models/{crop}_sarima_fit.pkl")
+    if model is not None:
+        return model
     # Fallback to ARIMA
-    arima_path = ts_dir / f"{crop}_arima_fit.pkl"
-    if arima_path.exists():
-        return joblib.load(arima_path)
-    
-    return None
+    return hf_load(f"Models/forecasting_models/{crop}_arima_fit.pkl")
 
 
 def disease_artifacts_exist() -> bool:
-    disease_dir = MODELS_DIR / "disease_detection"
-    return (
-        (disease_dir / "model.pkl").exists()
-        or (disease_dir / "model.keras").exists()
-        or (disease_dir / "model.weights.h5").exists()
-    ) and (disease_dir / "metadata.json").exists()
+    """Check if disease model artifacts are available on HuggingFace Hub."""
+    metadata_text = hf_read_text("Models/disease_detection/metadata.json")
+    if not metadata_text:
+        return False
+    for model_file in ["model.pkl", "model.keras", "model.weights.h5"]:
+        try:
+            hf_hub_download(repo_id=HF_REPO_ID, filename=f"Models/disease_detection/{model_file}")
+            return True
+        except Exception:
+            continue
+    return False
 
 
 def disease_status() -> tuple[bool, str | None]:
@@ -209,7 +228,17 @@ def disease_status() -> tuple[bool, str | None]:
 
 @lru_cache(maxsize=1)
 def load_disease_assets() -> dict[str, Any]:
-    return load_disease_artifacts(MODELS_DIR / "disease_detection")
+    """Download disease detection artifacts from HuggingFace Hub into a temp dir and load them."""
+    import tempfile, shutil
+    tmp_dir = Path(tempfile.mkdtemp()) / "disease_detection"
+    tmp_dir.mkdir(parents=True, exist_ok=True)
+    for fname in ["model.pkl", "model.keras", "model.weights.h5", "metadata.json"]:
+        try:
+            src = hf_hub_download(repo_id=HF_REPO_ID, filename=f"Models/disease_detection/{fname}")
+            shutil.copy(src, tmp_dir / fname)
+        except Exception:
+            pass
+    return load_disease_artifacts(tmp_dir)
 
 
 def require_assets(assets: dict[str, Any], keys: list[str], feature: str) -> None:

@@ -51,3 +51,4 @@ Data/
 Notebooks/outputs/
 Notebooks/*.png
 
+models/
