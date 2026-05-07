@@ -1,3 +1,4 @@
+# Existing + exclusions
 # Python
 __pycache__/
 *.py[cod]
@@ -8,9 +9,6 @@ __pycache__/
 # Virtual environments
 .venv/
 .venv_tf/
-.venv-tf/
-.venv312/
-.venv*/
 env/
 venv/
 
@@ -31,12 +29,13 @@ Thumbs.db
 *.tmp
 *.swp
 
-# Dataset and outputs
-Data/
-Notebooks/outputs/
-models/output*
-
-# Ignore Microsoft Office files
-*.docx
-*.doc
+# Office/docs to exclude
+Presentations/
 *.pdf
+*.docx
+*.pptx
+DFD.png
+repo_temp/
+app_fixed.py
+requirements.txt.new
+
